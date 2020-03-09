@@ -1,10 +1,11 @@
-const pg = require("pg")
-const uuidv4 = require("uuid")
-const client = new pg.Client(
+const pg = require("pg");
+const uuidv4 = require("uuid");
+const { Client } = pg;
+const client = new Client(
   process.env.DATABASE_URL || "postgres://localhost/crypto_db"
-)
+);
 
-client.connect()
+client.connect();
 
 const sync = async () => {
   const SQL = `
@@ -14,9 +15,25 @@ const sync = async () => {
       name VARCHAR NOT NULL UNIQUE
     );
 
-  `
-  client.query(SQL)
-}
+  `;
+  client.query(SQL);
+};
+
+const getTrackees = async () => {
+  const SQL = "SELECT * FROM tracking";
+  const response = await client.query(SQL);
+  return response.rows;
+};
+
+const newTrackee = async (id, name) => {
+  const SQL = "INSERT INTO tracking(id, name) VALUES($1, $2) returning *";
+  return (await client.query(SQL, [id, name])).rows[0];
+};
+
+const removeTrackee = async id => {
+  const SQL = "DELETE FROM tracking WHERE id=$1";
+  return await client.query(SQL, [id]);
+};
 
 // const createUser = async user => {
 //   const SQL = "INSERT INTO users(name) values($1) returning *"
@@ -66,5 +83,8 @@ const sync = async () => {
 // }
 
 module.exports = {
-  sync
-}
+  sync,
+  getTrackees,
+  newTrackee,
+  removeTrackee
+};

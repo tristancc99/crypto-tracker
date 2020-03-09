@@ -1,8 +1,8 @@
-import React from "react"
-import ReactDOM from "react-dom"
-import { useState, useEffect } from "react"
-import axios from "axios"
-import Card from "react-bootstrap/Card"
+import React from "react";
+import ReactDOM from "react-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import Card from "react-bootstrap/Card";
 import {
   LineChart,
   Line,
@@ -11,12 +11,12 @@ import {
   YAxis,
   Tooltip,
   ResponsiveContainer
-} from "recharts"
-import timestampToDate from "timestamp-to-date"
-import ListGroup from "react-bootstrap/ListGroup"
+} from "recharts";
+import timestampToDate from "timestamp-to-date";
+import ListGroup from "react-bootstrap/ListGroup";
 
 const CoinCard = props => {
-  let [graphData, setGraphData] = useState()
+  let [graphData, setGraphData] = useState();
 
   function getGraphData(e) {
     axios
@@ -26,25 +26,26 @@ const CoinCard = props => {
         }/history/${e.target.getAttribute("data-time")}`
       )
       .then(function(response) {
-        setGraphData(response.data.data.history)
-      })
+        setGraphData(response.data.data.history);
+      });
 
     if (e.target.className == "graphButton") {
-      props.data.isViewed = !props.data.isViewed
+      props.data.isViewed = !props.data.isViewed;
     }
   }
 
-  console.log(graphData)
-  console.dir(props.data.isViewed)
+  console.log(graphData);
+  console.dir(props.data.isViewed);
 
   if (graphData) {
     graphData.map(point => {
-      point.timestamp = timestampToDate(point.timestamp, "MM-dd").toString()
-    })
+      point.timestamp = timestampToDate(point.timestamp, "MM-dd").toString();
+    });
   }
 
   return (
     <ListGroup.Item key={props.data.id}>
+      <button onClick={props.remove(props.data.id)}> X </button>
       <h3>
         {props.data.name} &#124;
         <img
@@ -123,10 +124,10 @@ const CoinCard = props => {
         Graph...
       </button>
     </ListGroup.Item>
-  )
-}
+  );
+};
 
-export default CoinCard
+export default CoinCard;
 
 /* <Card
 className="bg-dark text-white"
