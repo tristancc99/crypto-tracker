@@ -56,7 +56,11 @@ const CoinCard = props => {
         &#124;
         <ul className="socials">
           {props.data.socials.map(social => (
-            <a href={social.url} className={`fa fa-${social.type}`} />
+            <a
+              href={social.url}
+              target="_blank"
+              className={`fa fa-${social.type}`}
+            />
           ))}
         </ul>
         &#124; Rank #{props.data.rank}
