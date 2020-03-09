@@ -28,6 +28,10 @@
     "react-bootstrap": "^1.0.0-beta.17",
     "react-dom": "^16.13.0",
     "react-hook-form": "^4.10.1",
-    "react-sidebar": "^3.0.2"
+    "react-sidebar": "^3.0.2",
+    "rechart": "0.0.1",
+    "recharts": "^2.0.0-beta.1",
+    "timestamp-to-date": "^1.1.0",
+    "victory": "^34.1.2"
   }
 }
