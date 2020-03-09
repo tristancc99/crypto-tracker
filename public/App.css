@@ -1,0 +1,81 @@
+.content {
+  margin-left: 2%;
+}
+
+.trackingList {
+  display: flex;
+  flex-flow: row wrap;
+  width: 90%;
+}
+
+.removeButton {
+  background-color: transparent;
+  color: white;
+  border: none;
+}
+
+.graphButton {
+  background-color: transparent;
+  color: black;
+  border: none;
+  margin-left: 80%;
+  margin-top: 5rem;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.timeFrameSelector {
+  background-color: transparent;
+  color: black;
+  border: none;
+  margin-left: 3rem;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.timeFrame {
+  margin: 0;
+  padding: 0;
+  display: inline;
+  text-decoration: none;
+}
+
+.socials {
+  margin: 0;
+  padding: 0;
+  display: inline;
+  text-decoration: none;
+}
+
+.socials a {
+  margin-left: 1%;
+  margin-right: 1%;
+  font-size: 30px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.socials a:hover {
+  text-decoration: none;
+  opacity: 0.7;
+}
+
+.fa-reddit {
+  color: #ff4500;
+}
+
+.fa-facebook {
+  color: #3b5998;
+}
+
+.fa-github {
+  color: #6e5494;
+}
+
+.fa-youtube {
+  color: #ff0000;
+}
+
+.fa-instagram {
+  color: #fcaf45;
+}
