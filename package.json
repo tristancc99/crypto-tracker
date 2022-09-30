@@ -30,9 +30,9 @@
     "react-hook-form": "^4.10.1",
     "react-sidebar": "^3.0.2",
     "rechart": "0.0.1",
-    "recharts": "^2.0.0-beta.1",
+    "recharts": "^2.1.14",
     "timestamp-to-date": "^1.1.0",
     "uuid": "^7.0.2",
-    "victory": "^34.1.2"
+    "victory": "^36.6.8"
   }
 }
